@@ -1,0 +1,99 @@
+Exercise 8
+
+consectetuer.rhoncus.Nullam@temporloremeget.org
+
+mysql> SELECT name FROM AddressBook WHERE accountId=3;
++---------------------------------+
+| name                            |
++---------------------------------+
+| Donec Incorporated              |
+| Ipsum Nunc LLC                  |
+| In Consectetuer Ltd             |
+| Lacus Aliquam Rutrum Industries |
+| Ac Ltd                          |
+| Mauris Consulting               |
+| Ornare Corporation              |
++---------------------------------+
+SELECT * FROM AddressBook WHERE name='Lorem Foundation'; 
+2015-05-04 14:28:16 
+
+SELECT COUNT(accountId) FROM Account;
+How many Accounts exist? 1000
+
+How many Address Books exist? 1100
+
+How many Address Book Entries exist? 4000
+
+mysql> SELECT COUNT(id) FROM Entry WHERE birthday <'1982-02-12' ;
++-----------+
+| COUNT(id) |
++-----------+
+|      2687 |
++-----------+
+
+mysql> SELECT COUNT(id) FROM Entry WHERE birthday >= '1965-01-01' ;                          
++-----------+
+| COUNT(id) |
++-----------+
+|      2597 |
++-----------+
+
+mysql> SELECT * FROM Entry ORDER BY birthday ASC LIMIT 1 ; 
+
+| 2260 |            93 | Abigail   | Rollins  | 1945-09-02 09:21:58 |
+
+mysql> SELECT COUNT(id) FROM Entry WHERE type!='other';
++-----------+
+| COUNT(id) |
++-----------+
+|      2800 |
++-----------+
+
+mysql> SELECT COUNT(id) FROM Entry WHERE type='home' OR  'work';
++-----------+
+| COUNT(id) |
++-----------+
+|      1600 |
++-----------+
+
+mysql> SELECT COUNT(id) FROM Entry WHERE subtype='phone';
++-----------+
+| COUNT(id) |
++-----------+
+|       600 |
++-----------+
+
+mysql> SELECT MAX(accountId) FROM AddressBook
+    -> ;
++----------------+
+| MAX(accountId) |
++----------------+
+|            100 |
++----------------+
+
+mysql> SELECT MAX(addressBookId) FROM Entry;
++--------------------+
+| MAX(addressBookId) |
++--------------------+
+|                110 |
++--------------------+
+
+mysql> SELECT COUNT(id)  FROM Entry WHERE subtype ='phone' AND contentLineOne LIKE '1_3%' OR contentLineOne LIKE '_3%';
++-----------+
+| COUNT(id) |
++-----------+
+|       155 |
++-----------+
+mysql> SELECT COUNT(id)  FROM Entry WHERE subtype ='phone' AND type ='home' AND contentLineOne NOT LIKE '%5%';
++-----------+
+| COUNT(id) |
++-----------+
+|        76 |
++-----------+
+mysql> SELECT COUNT(id)  FROM Entry WHERE subtype ='phone' AND type ='work' AND contentLineOne LIKE '1-%' OR contentLineOne LIKE '1 %';
++-----------+
+| COUNT(id) |
++-----------+
+|        60 |
++-----------+  
+.
